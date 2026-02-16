@@ -13,7 +13,7 @@
                 </p>
 
                 <button class="glass-btn mt-4">
-                    View My Work
+                    Learn More
                 </button>
 
             </div>
@@ -28,7 +28,7 @@
 import { ref } from 'vue'
 
 const name = ref("Hi, I'm Renzo!")
-const tagline = ref("Aspiring Developer • Problem Solver • Tech Enthusiast")
+const tagline = ref("Web & Mobile Developer | Passionate About Technology")
 </script>
 
 <style>

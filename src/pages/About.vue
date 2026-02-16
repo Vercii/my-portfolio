@@ -32,7 +32,7 @@
     padding: 40px;
 
     /* Glassmorphism */
-    background: rgba(78, 51, 51, 0.212);
+    background: rgba(180, 180, 180, 0.12);
     /* semi-transparent white */
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
