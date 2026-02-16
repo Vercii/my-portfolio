@@ -1,0 +1,101 @@
+/* ===== GLOBAL BACKGROUND ===== */
+
+body {
+  background: linear-gradient(135deg, #000000, #452c53, rgb(136, 135, 136));
+  min-height: 130vh;
+  color: white;
+}
+
+/* ===== GENERIC GLASS CARD ===== */
+
+.glass {
+  background: rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  border-radius: 20px;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+
+  padding: 2rem;
+}
+
+/* ===== GLASS NAVBAR ===== */
+
+.glass-navbar {
+  background: rgba(0, 0, 0, 0.35);
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  margin: 0.8% auto;
+  height: 8%;
+  padding: 2%;
+  width: 50%;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.glass-navbar:hover {
+  transform: translateY(10px); /* moves the navbar down 10px */
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4); /* optional: make shadow a bit stronger */
+}
+
+/* ===== GLASS BUTTON ===== */
+
+.glass-btn {
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  border-radius: 12px;
+  padding: 0.75rem 1.5rem;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  transition: all 0.25s ease;
+}
+
+.glass-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+/* ===== HERO SECTION CENTERING ===== */
+
+.hero-section {
+  min-height: 85vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+/* ===== SOFT GLOW TEXT ===== */
+
+.glow-text {
+  text-shadow:
+    0 0 12px rgba(255, 255, 255, 0.4),
+    0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+/* ===== SMOOTH SCROLL ===== */
+
+html {
+  scroll-behavior: smooth;
+}
