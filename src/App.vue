@@ -18,50 +18,28 @@
         <!-- Links -->
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
-
             <li class="nav-item">
-              <a class="nav-link active" href="#">Home</a>
+              <router-link class="nav-link" to="/home">Home</router-link>
             </li>
-
             <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+              <router-link class="nav-link" to="/about">About</router-link>
             </li>
-
             <li class="nav-item">
-              <a class="nav-link" href="#">Projects</a>
+              <router-link class="nav-link" to="/projects">Projects</router-link>
             </li>
-
             <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
+              <router-link class="nav-link" to="/contact">Contact</router-link>
             </li>
-
           </ul>
+
         </div>
 
       </div>
     </nav>
 
-    <!-- ===== HERO SECTION ===== -->
-    <section class="hero-section">
-      <div class="glass">
-
-        <h1 class="display-4 fw-bold glow-text">
-          {{ name }}
-        </h1>
-
-        <p class="lead mt-3">
-          {{ tagline }}
-        </p>
-
-        <button class="glass-btn mt-4">
-          View My Work
-        </button>
-
-      </div>
-
-    </section>
 
 
+    <router-view />
   </div>
 </template>
 
