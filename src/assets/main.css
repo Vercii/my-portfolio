@@ -114,97 +114,116 @@ html {
   scroll-behavior: smooth;
 }
 
-/* SNOW CONTAINER */
-.snow {
+.stars {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   pointer-events: none;
   z-index: 0;
   overflow: hidden;
 }
 
-/* BASE SNOW LAYER */
-.snow-layer {
+/* Floating stars background */
+.stars::before,
+.stars::after {
+  content: '';
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background-image: radial-gradient(white 1px, transparent 1px);
+  inset: -30%;
+
+  background-image:
+    radial-gradient(2px 2px at 0.5% 30%, rgba(255, 255, 255, 0.9), transparent),
+    radial-gradient(2px 3px at 30% 0.5%, rgba(255, 255, 255, 0.95), transparent),
+    radial-gradient(3px 1px at 40% 10%, rgb(255, 255, 255), transparent),
+    radial-gradient(2.5px 1px at 20% 50%, rgba(255, 255, 255, 0.712), transparent),
+    radial-gradient(1px 2.5px at 70% 10%, rgba(255, 255, 255, 0.85), transparent),
+    radial-gradient(1px 1.5px at 80% 34%, rgba(255, 255, 255, 0.685), transparent),
+    radial-gradient(1.5px 1.5px at 20% 70%, rgba(255, 255, 255, 0.9), transparent),
+    radial-gradient(1.5px 3.5px at 50% 60%, rgba(255, 255, 255, 0.9), transparent),
+    radial-gradient(2.5px 1.5px at 74% 36%, rgba(255, 255, 255, 0.9), transparent),
+    radial-gradient(4.5px 2.5px at 50% 40%, rgba(255, 255, 255, 0.9), transparent),
+    radial-gradient(5px 3.5px at 90% 10%, rgba(255, 255, 255, 0.85), transparent);
   background-repeat: repeat;
-  border-radius: 0%;
-  animation-iteration-count: infinite;
+  background-size: 600px 600px;
+
+  animation: floatStars 180s linear infinite;
+
+  filter: drop-shadow(0 0 6px rgb(255, 255, 255)) drop-shadow(0 0 12px rgba(255, 255, 255, 0.5))
+    drop-shadow(0 0 18px rgba(255, 255, 255, 0.3));
+
+  opacity: 0.9;
 }
 
-/* Layer 1 - foreground, faster, smaller flakes */
-.snow-layer.layer1 {
-  background-size: 10px 10px;
-  opacity: 0.2;
-  animation: snow1 100s linear infinite;
-  animation-delay: 0s;
+.stars::after {
+  animation-duration: 180s;
+  opacity: 0.6;
 }
 
-/* Layer 2 - background, slower, bigger flakes */
-.snow-layer.layer2 {
-  background-size: 20px 20px;
-  opacity: 0.15;
-  animation: snow2 80s linear infinite;
-  animation-delay: 0s; /* stagger start to prevent empty gaps */
-}
-
-/* Layer 3 - foreground, faster, smaller flakes */
-.snow-layer.layer3 {
-  background-size: 10px 10px;
-  opacity: 0.2;
-  animation: snow3 100s linear infinite;
-  animation-delay: 20s;
-  top: -100%;
-}
-
-/* Layer 4 - background, slower, bigger flakes */
-.snow-layer.layer4 {
-  background-size: 20px 20px;
-  opacity: 0.15;
-  animation: snow4 80s linear infinite;
-  animation-delay: 20s; /* stagger start to prevent empty gaps */
-  top: -100%;
-}
-
-/* DIAGONAL ANIMATIONS */
-@keyframes snow1 {
-  0% {
+@keyframes floatStars {
+  from {
     transform: translate(0, 0);
   }
-  100% {
-    transform: translate(60px, 120%);
-  } /* diagonal drift */
+  to {
+    transform: translate(-200px, -300px);
+  }
 }
 
-@keyframes snow2 {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(-30px, 120%);
-  } /* slower, opposite drift */
-}
-@keyframes snow3 {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(60px, 120%);
-  } /* diagonal drift */
+.shooting-star {
+  position: absolute;
+  width: 3px; /* core dot */
+  height: 3px;
+  top: 80%;
+  left: -10vw;
+
+  background: white;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 3px white) drop-shadow(0 0 6px rgba(255, 255, 255, 0.6));
+
+  animation: shoot 20s linear infinite;
+  opacity: 0;
 }
 
-@keyframes snow4 {
+/* Middle glow (o) */
+.shooting-star::before {
+  content: '';
+  position: absolute;
+  width: 8px; /* bigger than core */
+  height: 8px;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  filter: blur(3px);
+}
+
+/* Outer glow (O) */
+.shooting-star::after {
+  content: '';
+  position: absolute;
+  width: 20px; /* bigger than middle glow */
+  height: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  filter: blur(5px);
+}
+
+/* Animation for movement and fading */
+@keyframes shoot {
   0% {
     transform: translate(0, 0);
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  50% {
+    transform: translate(80vw, -40vh);
+    opacity: 1;
   }
   100% {
-    transform: translate(-30px, 120%);
-  } /* slower, opposite drift */
+    transform: translate(120vw, -60vh);
+    opacity: 0;
+  }
 }

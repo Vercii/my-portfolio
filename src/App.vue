@@ -1,9 +1,6 @@
 <template>
-  <div class="snow">
-    <div class="snow-layer layer1"></div>
-    <div class="snow-layer layer2"></div>
-    <div class="snow-layer layer3"></div>
-    <div class="snow-layer layer4"></div>
+  <div class="stars">
+    <div class="shooting-star"></div>
   </div>
 
 
