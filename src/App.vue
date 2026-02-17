@@ -1,46 +1,54 @@
 <template>
-  <div>
+  <div class="snow">
+    <div class="snow-layer layer1"></div>
+    <div class="snow-layer layer2"></div>
+    <div class="snow-layer layer3"></div>
+    <div class="snow-layer layer4"></div>
+  </div>
 
-    <!-- ===== NAVBAR ===== -->
-    <nav class="navbar navbar-expand-lg navbar-dark glass-navbar fixed-top">
-      <div class="container">
 
-        <!-- Your Name on the Left -->
-        <a class="navbar-brand fw-bold" href="#">
-          RENZO
-        </a>
 
-        <!-- Mobile Toggle -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar navbar-expand-lg navbar-dark glass-navbar fixed-top">
+    <div class="container">
 
-        <!-- Links -->
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <router-link class="nav-link" to="/home">Home</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link class="nav-link" to="/about">About</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link class="nav-link" to="/projects">Projects</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link class="nav-link" to="/contact">Contact</router-link>
-            </li>
-          </ul>
+      <!-- Your Name on the Left -->
+      <a class="navbar-brand fw-bold" href="#">
+        RENZO
+      </a>
 
-        </div>
+      <!-- Mobile Toggle -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Links -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <router-link class="nav-link" to="/home">Home</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/about">About</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/projects">Projects</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/contact">Contact</router-link>
+          </li>
+        </ul>
 
       </div>
-    </nav>
+
+    </div>
+  </nav>
 
 
 
-    <router-view />
-  </div>
+  <router-view />
+
+
 </template>
 
 <script setup>

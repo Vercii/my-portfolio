@@ -77,13 +77,27 @@ body {
 /* ===== HERO SECTION CENTERING ===== */
 
 .hero-section {
-  min-height: 85vh;
+  min-height: 100vh;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
   text-align: center;
+}
+
+.hero-section2 {
+  min-height: 85vh;
+  margin-left: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  text-align: center;
+}
+
+#education {
+  scroll-margin-top: 100px; /* adjust to navbar height */
 }
 
 /* ===== SOFT GLOW TEXT ===== */
@@ -98,4 +112,99 @@ body {
 
 html {
   scroll-behavior: smooth;
+}
+
+/* SNOW CONTAINER */
+.snow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* BASE SNOW LAYER */
+.snow-layer {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: radial-gradient(white 1px, transparent 1px);
+  background-repeat: repeat;
+  border-radius: 0%;
+  animation-iteration-count: infinite;
+}
+
+/* Layer 1 - foreground, faster, smaller flakes */
+.snow-layer.layer1 {
+  background-size: 10px 10px;
+  opacity: 0.2;
+  animation: snow1 100s linear infinite;
+  animation-delay: 0s;
+}
+
+/* Layer 2 - background, slower, bigger flakes */
+.snow-layer.layer2 {
+  background-size: 20px 20px;
+  opacity: 0.15;
+  animation: snow2 80s linear infinite;
+  animation-delay: 0s; /* stagger start to prevent empty gaps */
+}
+
+/* Layer 3 - foreground, faster, smaller flakes */
+.snow-layer.layer3 {
+  background-size: 10px 10px;
+  opacity: 0.2;
+  animation: snow3 100s linear infinite;
+  animation-delay: 20s;
+  top: -100%;
+}
+
+/* Layer 4 - background, slower, bigger flakes */
+.snow-layer.layer4 {
+  background-size: 20px 20px;
+  opacity: 0.15;
+  animation: snow4 80s linear infinite;
+  animation-delay: 20s; /* stagger start to prevent empty gaps */
+  top: -100%;
+}
+
+/* DIAGONAL ANIMATIONS */
+@keyframes snow1 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(60px, 120%);
+  } /* diagonal drift */
+}
+
+@keyframes snow2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-30px, 120%);
+  } /* slower, opposite drift */
+}
+@keyframes snow3 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(60px, 120%);
+  } /* diagonal drift */
+}
+
+@keyframes snow4 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-30px, 120%);
+  } /* slower, opposite drift */
 }

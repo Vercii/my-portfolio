@@ -12,24 +12,45 @@
                     {{ tagline }}
                 </p>
 
-                <button class="glass-btn mt-4">
+                <button class="glass-btn mt-4" @click="scrollToEducation">
                     Learn More
                 </button>
 
             </div>
-
         </section>
 
-        <router-view />
+        <!-- ===== EDUCATION SECTION ===== -->
+        <section class="hero-section2" id="education">
+            <div class="glass">
+
+                <h1 class="display-4 fw-bold glow-text">
+                    Education
+                </h1>
+
+                <p class="lead mt-3">
+                    Graduated in University of the East with a degree in Computer Science.
+                </p>
+
+            </div>
+        </section>
     </div>
 </template>
+
 
 <script setup>
 import { ref } from 'vue'
 
 const name = ref("Hi, I'm Renzo!")
 const tagline = ref("Web & Mobile Developer | Passionate About Technology")
+
+function scrollToEducation() {
+    const el = document.getElementById('education')
+    if (el) {
+        el.scrollIntoView({ behavior: 'smooth' })
+    }
+}
 </script>
+
 
 <style>
 body {
