@@ -122,12 +122,12 @@ html {
   overflow: hidden;
 }
 
-/* Floating stars background */
+/* Floating stars (bobbing effect) */
 .stars::before,
 .stars::after {
   content: '';
   position: absolute;
-  inset: -30%;
+  inset: 0;
 
   background-image:
     radial-gradient(2px 2px at 0.5% 30%, rgba(255, 255, 255, 0.9), transparent),
@@ -144,25 +144,39 @@ html {
   background-repeat: repeat;
   background-size: 600px 600px;
 
-  animation: floatStars 180s linear infinite;
-
-  filter: drop-shadow(0 0 6px rgb(255, 255, 255)) drop-shadow(0 0 12px rgba(255, 255, 255, 0.5))
-    drop-shadow(0 0 18px rgba(255, 255, 255, 0.3));
-
+  /* Bobbing animation */
+  animation: bob 20s ease-in-out infinite;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.8));
   opacity: 0.9;
 }
 
+/* Slightly different speed/phase for after pseudo-element */
 .stars::after {
-  animation-duration: 180s;
+  animation-duration: 25s;
   opacity: 0.6;
 }
 
-@keyframes floatStars {
-  from {
-    transform: translate(0, 0);
+/* Bobbing keyframes */
+@keyframes bob {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
   }
-  to {
-    transform: translate(-200px, -300px);
+  25% {
+    transform: translateY(-35px);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  75% {
+    transform: translateY(-15px);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0;
   }
 }
 
